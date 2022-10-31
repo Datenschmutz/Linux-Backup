@@ -12,7 +12,7 @@ I´m not responsible for any not functioning Server, Machines or lost files!!!
 ## Installation
 
 ```
-wget https://ADDMEEEEE!!!!!!!!!!!!!!!!!!!
+wget https://raw.githubusercontent.com/Datenschmutz/Linux-Backup/main/install.sh
 ```
     bash install.sh
 

@@ -5,7 +5,7 @@ echo Datenschmutz Linux Auto Backup install
 echo "#####################################"
 
 cd
-sudo wget https:ADDDDDDDDMEEEEEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!!!!!!!!!!
+sudo wget https://raw.githubusercontent.com/Datenschmutz/Linux-Backup/main/backup.sh
 sudo chmod +x backup.sh
 
 mkdir /opt/backup/
