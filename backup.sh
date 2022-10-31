@@ -16,24 +16,6 @@ rclone="fillme"
 #Wanted S3 Bucket name
 bucket='fillme'
 
-#
-TBD='no'
-
-#
-TBD='no'
-
-#
-TBD='no'
-
-#
-TBD='no'
-
-#
-TBD='no'
-
-#
-TBD='no'
-
 ######################
 ## DON'T EDIT ZONE ##
 ######################
@@ -49,55 +31,14 @@ then
 echo -e ${BIRed}Bucket name config argument is at default value please configure "backup.sh" via the "install.sh" script{clear}. && exit
 fi
 
-#Copy selected files/folders
-CURRENTDATE=$(date)
-BCKUPPATH=/home/$USER/autobackup
+#Copy selected files/folders and compresses them into a tar.gz archive
+BCKUPPATH=/opt/backup
 
-if [ $CONFIG = "yes" ]
-then
-  cp -r /home/$USERNAME/klipper_config "$BCKUPPATH"
-fi
-
-
-if [ $KLIPPER = "yes"  ]
-then
-  cp -r /home/$USERNAME/klipper "$BCKUPPATH"
-fi
-
-if [ $EXTRAS = "yes" ]
-then
-  cp -r /home/$USERNAME/klipper/klippy/extas "$BCKUPPATH"
-fi
-
-if [ $LOGS = "yes" ]
-then
-  cp -r /home/$USERNAME/klipper_logs "$BCKUPPATH"
-
-fi
-
-if [ $MOONRAKER = "yes" ]
-then
-  cp -r /home/$USERNAME/moon* "$BCKUPPATH"
-
-fi
-
-if [ $GCODES = "yes" ]
-then
-  cp -r /home/$USERNAME/gcode_files "$BCKUPPATH"
-
-fi
-
-if [ $HISTORY = "yes" ]
-then
-  cp -r /home/$USERNAME/.moonraker_database "$BCKUPPATH"
-
-fi
-
-#Compresses copied files into a tar.gz archive
-cd "$BCKUPPATH" && tar -cvzf Voron-Backup-$(date +%d.%m.%Y).tar.gz --directory="$BCKUPPATH" .
+cd "$BCKUPPATH" && tar -cvzf backup-$(date +%d.%m.%Y).tar.gz --directory=/ --exclude=lost+found --exclude=dev/* --exclude=proc/* --exclude=run/* --exclude=sys/* --exclude=tmp/* --exclude=mnt/* --exclude=media/* --exclude="$BCKUPPATH"/* .
 
 #rClone command to move tar.gz archive to S3 destination directory
-/usr/bin/rclone move -P --update --verbose --transfers 30 --log-file=/var/log/upload.log "$BCKUPPATH" "s3-eu2:backup/"
+/usr/bin/rclone move -P --update --verbose --transfers 30 --log-file=/var/log/upload.log "$BCKUPPATH" ""$rclone":"$bucket"/"
+
 
 ###############################
 ## CUSTOM BACKUP FOLDER ZONE ##
