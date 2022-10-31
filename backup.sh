@@ -10,11 +10,11 @@ clear='\033[0m'
 
 # you should understand how to enable and disable it manually...
 
-#
-TBD="yes"
-
 #Replace with the name of your rClone destination
-TBD='fillme'
+rclone="fillme"
+
+#Wanted S3 Bucket name
+bucket='fillme'
 
 #
 TBD='no'
@@ -39,58 +39,14 @@ TBD='no'
 ######################
 
 #Config check
-if [ $CONFIG = "yes" ] || [ $CONFIG = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}Klipper config argument can only be yes/no please correct "CONFIG=" in backup.sh${clear}. && exit
-fi
-
 if [ $RCLONE = "fillme"  ]
 then
 echo -e ${BIRed}rClone config argument is at default value please configure "backup.sh" via the "install.sh" script{clear}. && exit
 fi
 
-if [ $KLIPPER = "yes" ] || [ $KLIPPER = "no" ]
+if [ $bucket = "fillme"  ]
 then
-  :
-else
-  echo -e ${BIRed}Klipper config argument can only be yes/no please correct "KLIPPER=" in backup.sh${clear}. && exit
-fi
-
-if [ $EXTRAS = "yes" ] || [ $EXTRAS = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}Extras Backup -.py Scripts/ Ercf...- config argument can only be yes/no please correct "EXTRAS=" in backup.sh${clear}. && exit
-fi
-
-if [ $LOGS = "yes" ] || [ $LOGS = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}Logs config argument can only be yes/no please correct "LOGS=" in backup.sh${clear}. && exit
-fi
-
-if [ $MOONRAKER = "yes" ] || [ $MOONRAKER = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}Moonraker config argument can only be yes/no please correct "MOONRAKER=" in backup.sh${clear}. && exit
-fi
-
-if [ $GCODES = "yes" ] || [ $GCODES = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}GCodes config argument can only be yes/no please correct "GCODES=" in backup.sh${clear}. && exit
-fi
-
-if [ $HISTORY = "yes" ] || [ $HISTORY = "no" ]
-then
-  :
-else
-  echo -e ${BIRed}History config argument can only be yes/no please correct "HISTORY=" in backup.sh${clear}. && exit
+echo -e ${BIRed}Bucket name config argument is at default value please configure "backup.sh" via the "install.sh" script{clear}. && exit
 fi
 
 #Copy selected files/folders
