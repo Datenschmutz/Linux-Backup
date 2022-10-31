@@ -1,7 +1,6 @@
 # Auto-Backup your Linux Servers files with rClone to a S3 Storage Solution.
 
 ## Disclaimer
-**DO NOT USE**
 WORK IN PROGRESS. **BACKUP YOUR FILES MANUALLY!!!!**
 I´m not responsible for any not functioning Server, Machines or lost files!!!
 
