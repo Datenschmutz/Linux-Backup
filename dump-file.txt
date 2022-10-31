@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd /opt/backup && tar -cvzf backup-$(date +%d.%m.%Y).tar.gz --directory=/ --exclude=lost+found --exclude=dev/* --exclude=proc/* --exclude=run/* --exclude=sys/* --exclude=tmp/* --exclude=mnt/* --exclude=media/* --exclude=opt/backup/* .
-
-/usr/bin/rclone move -P --update --verbose --transfers 30 --log-file=/var/log/upload.log "/opt/backup" "s3-eu2:backup/"

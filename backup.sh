@@ -2,13 +2,10 @@
 BIRed='\033[1;91m'
 clear='\033[0m'
 # Datenschmutz Auto-Backup
-# On Every reboot, selected files will be automatically backuped into timestamped folders.
 
 ###############
 ## EDIT ZONE ##
 ###############
-
-# you should understand how to enable and disable it manually...
 
 #Replace with the name of your rClone destination
 rclone="fillme"
@@ -38,19 +35,6 @@ cd "$BCKUPPATH" && tar -cvzf backup-$(date +%d.%m.%Y).tar.gz --directory=/ --exc
 
 #rClone command to move tar.gz archive to S3 destination directory
 /usr/bin/rclone move -P --update --verbose --transfers 30 --log-file=/var/log/upload.log "$BCKUPPATH" ""$rclone":"$bucket"/"
-
-###############################
-## CUSTOM BACKUP FOLDER ZONE ##
-###############################
-
-#Example: sudo cp -r /YOUR/FOLDER "$BCKUPPATH"
-
-
-
-
-
-
-
 
 
 #Remixed by Datenschmutz based on Takuya Script ;)
