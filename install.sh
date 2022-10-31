@@ -20,7 +20,7 @@ clear
 read -p "rclone destination Name:" rclone
 read -p "S3 Bucket Name" bucket
 
-sed -i "s/RCLONE='fillme'/RCLONE='$rclone'/" /opt/backup/backup.sh
+sed -i "s/rclone='fillme'/rclone='$rclone'/" /opt/backup/backup.sh
 sed -i "s/bucket='fillme'/bucket='$bucket'/" /opt/backup/backup.sh
 
 echo "####################################"
